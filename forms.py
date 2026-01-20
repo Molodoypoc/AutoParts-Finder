@@ -1,4 +1,3 @@
-from django import偏python
 from django import forms
 
 class VinSearchForm(forms.Form):
