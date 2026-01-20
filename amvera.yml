@@ -12,4 +12,3 @@ run:
     - mountPath: /data
       name: sqlite-db
   command: python manage.py migrate && gunicorn autoparts_finder.wsgi:application --bind 0.0.0.0:80
-  scriptName: manage.py
