@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card p-4 shadow-sm">
+    <h2>Поиск запчастей по VIN</h2>
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Найти</button>
+    </form>
+
+    {% if results %}
+        <h3>Результаты для {{ car_info }}:</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr><th>OEM</th><th>Название</th><th>Категория</th><th>Цена</th></tr>
+            </thead>
+            <tbody>
+                {% for part in results %}
+                <tr>
+                    <td>{{ part.oem_code }}</td>
+                    <td>{{ part.name }}</td>
+                    <td>{{ part.category }}</td>
+                    <td>{{ part.price }} ₽</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</div>
+{% endblock %}

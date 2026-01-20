@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card p-4 shadow-sm">
+    <h2>Аналитика рынка запчастей</h2>
+    <p>Общее количество деталей: <strong>{{ total_count }}</strong></p>
+    <p>Максимальная цена в базе: <strong>{{ max_price }} ₽</strong></p>
+    
+    <h3 class="mt-4">Средние цены по категориям (Pandas):</h3>
+    <ul class="list-group">
+        {% for category, price in stats.items %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ category }}
+            <span class="badge bg-success rounded-pill">{{ price|stringformat:".2f" }} ₽</span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

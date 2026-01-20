@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoParts Finder</title>
+    <!-- Bootstrap 5 для аккуратного интерфейса -->
+    <link href="https://cdn.jsdelivr.net" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'search' %}">AutoParts Finder</a>
+            <div class="navbar-nav">
+                <a class="nav-link" href="{% url 'analytics' %}">Аналитика</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
